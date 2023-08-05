@@ -1,0 +1,34 @@
+export const Data = [
+    {
+        id:1,
+        category_name:'furniture'
+    },
+    {
+        id:2,
+        category_name:"smartphones"
+    },
+    {
+        id:3,
+        category_name:"fragrances"
+    },
+    {
+        id:4,
+        category_name:"skincare"
+    },
+    {
+        id:5,
+        category_name:"mens-shirts"
+    },
+    {
+        id:6,
+        category_name:"mens-shoes"
+    },
+    {
+        id:7,
+        category_name:"womens-dresses"
+    },
+    {
+        id:8,
+        category_name:"womens-shoes"
+    }
+]

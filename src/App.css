@@ -1,38 +1,120 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App h1{
   text-align: center;
+  font-size: 60px;
+  font-weight: 400;
+  margin: 20px;
+  color: rgb(76, 125, 165);
+}
+.product-page input{
+  text-align: center;
+  width:40em;
+  margin:20px;
+  padding: 5px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.product{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.product-card{
+  background-color: rgb(248, 251, 252);
+  width: 350px;
+  height: auto;
+  margin-top: 40px;
+  margin-left: 10px;
+  padding: 10px;
+  border: 2px solid black;
+  
+}
+.product-style{
+  text-decoration: none;
+}
+.product-card img{
+  padding: 4px;
+  width: 20em;
+  border-radius:2px;
+}
+.product-card h2{
+  text-align: center;
+  padding: 10px;
+  color: rgb(78, 85, 146);
+  text-transform: capitalize;
+}
+.product-card p{
+  font-size: 20px;
+  font-weight: 400;
+  text-align: justify;
+}
+.navbar{
+  margin: 20px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.navbar img{
+  width: 100px;
+}
+.navbar ul{
+  display: flex;
+  justify-content: space-between;
+  
+}
+.navbar ul li{
+  list-style-type: none;
+  cursor: pointer;
+  padding: 20px;
+}
+
+.product-page-details{
+ width: 100%;
+ margin: 0 auto;
+}
+.product-page-details .product-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 20px;
+}
+.product-page-details .product-details img{
+  width: 400px;
+  border-radius: 20px;
+}
+
+.product-page-details .product-side{
+  margin-top: 10px;
+  width: 60%;
+}
+.product-page-details .product-side h2{
+  font-size: 3em;
+  font-weight: 700;
+  color: rgb(101, 101, 150);
+}
+.product-page-details .product-side p{
+  font-size: 1.6em;
+
+}
+.category{
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.category button{
+  margin: 6px;
+  cursor: pointer;
+  color: rgb(132, 141, 8);
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(206, 157, 53);
 }
