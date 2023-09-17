@@ -43,6 +43,13 @@ const Product = () => {
         // console.log(json[0].title);
         // console.log(product);
     }
+
+    const indexOfLastProduct = currentPage * productPerPage; //10
+    const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
+    const currentProductPage = posts.slice(indexOfFirstProduct, indexOfLastProduct);
+  
+    //paginate
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
   return (
     <div className='product-page'>
         {/* <Category/> */}
