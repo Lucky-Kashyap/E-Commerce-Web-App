@@ -1,9 +1,25 @@
 import React from 'react'
 
-const Pagination = () => {
+const Pagination = ({productsPerPage,totalProducts,paginate}) => {
+    const pageNumbers =[]
+
+    for(let i=1; i<=Math.ceil(totalProducts/productsPerPage);i++){
+          pageNumbers.push(i)
+    }
   return (
-    <nav aria-label="..." className='text-center'>
-  <ul className="pagination">
+    <nav className='text-center'>
+        <ul className="pagination justify-content-center">
+                {pageNumbers.map(number =>(
+                    <li key={number} className="page-item">
+                        <a onClick={()=> paginate(number)}
+                         href="#" 
+                        className="page-link">
+                            {number}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+  {/* <ul className="pagination justify-content-center">
     <li className="page-item disabled">
       <a className="page-link" href="#" tabindex="-1">Previous</a>
     </li>
@@ -15,7 +31,7 @@ const Pagination = () => {
     <li className="page-item">
       <a className="page-link" href="#">Next</a>
     </li>
-  </ul>
+  </ul> */}
 </nav>
   )
 }
