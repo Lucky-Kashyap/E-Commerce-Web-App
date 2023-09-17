@@ -10,7 +10,7 @@ const Product = () => {
     const[filteredProduct,setFilteredProduct] = useState([]);
     const[searchProduct,setSearchProduct] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-  const [productPerPage] = useState(10);
+  const [productPerPage] = useState(5);
 
     useEffect(()=>{
         getProductData();
