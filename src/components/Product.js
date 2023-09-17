@@ -8,6 +8,8 @@ const Product = () => {
     const[product,setProduct]= useState([]);
     const[filteredProduct,setFilteredProduct] = useState([]);
     const[searchProduct,setSearchProduct] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+  const [productPerPage] = useState(10);
 
     useEffect(()=>{
         getProductData();
