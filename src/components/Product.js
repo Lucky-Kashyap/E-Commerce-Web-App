@@ -10,7 +10,7 @@ const Product = () => {
     const[filteredProduct,setFilteredProduct] = useState([]);
     const[searchProduct,setSearchProduct] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
-  const [productPerPage] = useState(5);
+  const [productPerPage] = useState(10);
 
     useEffect(()=>{
         getProductData();
@@ -49,6 +49,7 @@ const Product = () => {
     const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
     const currentProductPage = product.slice(indexOfFirstProduct, indexOfLastProduct);
   
+    console.log(currentProductPage);
     //paginate
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
   return (

@@ -1,14 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { useState } from 'react';
 
 const ProductCard = ({products}) => {
-  console.log(products);
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  // console.log(products);
+  const [productPerPage] = useState(10);
+
+
+  const indexOfLastProduct = currentPage * productPerPage; //10
+  const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
+  const currentProductPage = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
   return (
   <>
     {
-      products.map(prod=>(
+      currentProductPage.map(prod=>(
         
           
-              <div className="card" style={{width:'18rem'}}>
+              <div className="card"  key={prod.id}style={{width:'18rem'}}>
             <img className="card-img-top" src={prod.thumbnail} alt="Card image cap" />
             <div className="card-body">
               <h5 className="card-title">{prod.title}</h5>
@@ -17,7 +27,7 @@ const ProductCard = ({products}) => {
               <h3 className='card-subtitle'>{prod.rating}</h3>
               <h4 className='card-subtitle'>stock : {prod.stock}</h4>
               <h4 className='card-subtitle'>{prod.category}</h4>
-              <a href="#" className="btn btn-primary">Add To Cart</a>
+              <button  className="btn btn-primary">Add To Cart</button>
             </div>
           </div>
           
