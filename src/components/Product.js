@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import { Link } from 'react-router-dom';
 import Category from './Category';
+import Pagination from './Pagination';
 
 const Product = () => {
 
@@ -46,7 +47,7 @@ const Product = () => {
 
     const indexOfLastProduct = currentPage * productPerPage; //10
     const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
-    const currentProductPage = posts.slice(indexOfFirstProduct, indexOfLastProduct);
+    const currentProductPage = product.slice(indexOfFirstProduct, indexOfLastProduct);
   
     //paginate
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -59,25 +60,11 @@ const Product = () => {
     {
         // console.log(product.title)
         filteredProduct?.map(prod=>(
-            <Link to={'/product/' + prod.id} key={prod.id} className='product-style'><ProductCard {...prod} /></Link>
+            <Link to={'/product/' + prod.id} key={prod.id} className='product-style'><ProductCard products={currentProductPage} /></Link>
         ))
     }
     </div>
-    <nav aria-label="..." className='text-center'>
-  <ul className="pagination">
-    <li className="page-item disabled">
-      <a className="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li className="page-item"><a className="page-link" href="#">1</a></li>
-    <li className="page-item active">
-      <a className="page-link" href="#">2 <span className="sr-only">(current)</span></a>
-    </li>
-    <li className="page-item"><a className="page-link" href="#">3</a></li>
-    <li className="page-item">
-      <a className="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
+    <Pagination productsPerPage={productPerPage} totalProducts={product.length} paginate={paginate}/>
     </div>
   )
 }
