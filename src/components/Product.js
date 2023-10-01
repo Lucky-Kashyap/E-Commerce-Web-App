@@ -9,8 +9,8 @@ const Product = () => {
     const[product,setProduct]= useState([]);
     const[filteredProduct,setFilteredProduct] = useState([]);
     const[searchProduct,setSearchProduct] = useState('');
-    const [currentPage, setCurrentPage] = useState(1);
-  const [productPerPage] = useState(10);
+    // const [currentPage, setCurrentPage] = useState(1);
+//   const [productPerPage] = useState(10);
 
     useEffect(()=>{
         getProductData();
@@ -45,13 +45,13 @@ const Product = () => {
         // console.log(product);
     }
 
-    const indexOfLastProduct = currentPage * productPerPage; //10
-    const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
-    const currentProductPage = product.slice(indexOfFirstProduct, indexOfLastProduct);
+    // const indexOfLastProduct = currentPage * productPerPage; //10
+    // const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
+    // const currentProductPage = product.slice(indexOfFirstProduct, indexOfLastProduct);
   
-    console.log(currentProductPage);
+    // console.log(currentProductPage);
     //paginate
-    const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    // const paginate = (pageNumber) => setCurrentPage(pageNumber)
   return (
     <div className='product-page'>
         {/* <Category/> */}
@@ -61,11 +61,11 @@ const Product = () => {
     {
         // console.log(product.title)
         filteredProduct?.map(prod=>(
-            <Link to={'/product/' + prod.id} key={prod.id} className='product-style'><ProductCard products={currentProductPage} /></Link>
+            <Link to={'/product/' + prod.id} key={prod.id} className='product-style'><ProductCard products={product} /></Link>
         ))
     }
     </div>
-    <Pagination productsPerPage={productPerPage} totalProducts={product.length} paginate={paginate}/>
+    {/* <Pagination productsPerPage={productPerPage} totalProducts={product.length} paginate={paginate}/> */}
     </div>
   )
 }

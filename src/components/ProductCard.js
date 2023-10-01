@@ -2,20 +2,23 @@ import React from 'react';
 import { useState } from 'react';
 
 const ProductCard = ({products}) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
+  console.log(products);
   
   // console.log(products);
-  const [productPerPage] = useState(10);
+  // const [productPerPage] = useState(10);
 
 
-  const indexOfLastProduct = currentPage * productPerPage; //10
-  const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
-  const currentProductPage = products.slice(indexOfFirstProduct, indexOfLastProduct);
+  // const indexOfLastProduct = currentPage * productPerPage; //10
+  // const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
+  // const currentProductPage = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
+  // console.log(currentProductPage);
+  
   return (
   <>
     {
-      currentProductPage.map(prod=>(
+      products?.map(prod=>(
         
           
               <div className="card"  key={prod.id}style={{width:'18rem'}}>
