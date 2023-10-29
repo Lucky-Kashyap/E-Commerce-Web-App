@@ -1,26 +1,24 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Pagination from './Pagination';
+
 
 const ProductCard = ({products}) => {
-  // const [currentPage, setCurrentPage] = useState(1);
-  console.log(products);
-  
-  // console.log(products);
-  // const [productPerPage] = useState(10);
+  const [page,setPage] = useState(1);
+ 
+  let itemPerPage = 10;
+    let totalPageLength = Math.ceil(products.length/10);
 
-
-  // const indexOfLastProduct = currentPage * productPerPage; //10
-  // const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
-  // const currentProductPage = products.slice(indexOfFirstProduct, indexOfLastProduct);
-
-  // console.log(currentProductPage);
+    let startIndex = (page-1) * itemPerPage;
+    let endIndex = startIndex + itemPerPage;
   
   return (
   <>
+  
     {
-      products?.map(prod=>(
+      products.slice(startIndex,endIndex)?.map(prod=>(
         
-          
+        <Link to={`product/${prod.id}`}>
               <div className="card"  key={prod.id}style={{width:'18rem'}}>
             <img className="card-img-top" src={prod.thumbnail} alt="Card image cap" />
             <div className="card-body">
@@ -33,10 +31,12 @@ const ProductCard = ({products}) => {
               <button  className="btn btn-primary">Add To Cart</button>
             </div>
           </div>
-          
+          </Link>
       )
         )
     }
+    <Pagination page={page} setPage={setPage} totalPage={totalPageLength}/>
+   
     </>
   )
 }

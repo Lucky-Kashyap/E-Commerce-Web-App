@@ -9,8 +9,7 @@ const Product = () => {
     const[product,setProduct]= useState([]);
     const[filteredProduct,setFilteredProduct] = useState([]);
     const[searchProduct,setSearchProduct] = useState('');
-    // const [currentPage, setCurrentPage] = useState(1);
-//   const [productPerPage] = useState(10);
+    // const [page,setPage] = useState(1);
 
     useEffect(()=>{
         getProductData();
@@ -39,19 +38,15 @@ const Product = () => {
         catch(e){
             console.log(e.message);
         }
-        // console.log(json);
-
-        // console.log(json[0].title);
-        // console.log(product);
+        
     }
 
-    // const indexOfLastProduct = currentPage * productPerPage; //10
-    // const indexOfFirstProduct = indexOfLastProduct - productPerPage; //0
-    // const currentProductPage = product.slice(indexOfFirstProduct, indexOfLastProduct);
-  
-    // console.log(currentProductPage);
-    //paginate
-    // const paginate = (pageNumber) => setCurrentPage(pageNumber)
+    // let itemPerPage = 10;
+    // let totalPageLength = Math.ceil(filteredProduct.length/10);
+
+    // let startIndex = (page-1) * itemPerPage;
+    // let endIndex = startIndex + itemPerPage;
+    
   return (
     <div className='product-page'>
         {/* <Category/> */}
@@ -61,13 +56,16 @@ const Product = () => {
     {
         // console.log(product.title)
         filteredProduct?.map(prod=>(
-            <Link to={'/product/' + prod.id} key={prod.id} className='product-style'><ProductCard products={product} /></Link>
+            <ProductCard products={product} />
         ))
     }
     </div>
-    {/* <Pagination productsPerPage={productPerPage} totalProducts={product.length} paginate={paginate}/> */}
+    {/* <Pagination page={page} setPage={setPage} totalPage={totalPageLength}/> */}
     </div>
   )
 }
 
 export default Product
+
+
+{/* <Link to={'/product/' + prod.id} key={prod.id} className='product-style'> */}
